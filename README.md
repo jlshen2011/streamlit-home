@@ -13,3 +13,10 @@ git clone https://github.com/jlshen2011/streamlit-home.git
 cd streamlit-home
 streamlit run main.py
 ```
+
+## Market Dashboard
+![Market Dashboard](https://github.com/jlshen2011/streamlit-home/blob/master/images/market.png)
+
+
+## Payment Dashboard
+![Payment Dashboard](https://github.com/jlshen2011/streamlit-home/blob/master/images/payment.png)
