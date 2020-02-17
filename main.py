@@ -178,12 +178,12 @@ elif app == "Payment Dashboard":
             break    
     msg = ""
     if hold_breakeven_point <= df_pay_cum.shape[1]:
-        msg += "You cumulative rent cost will exceed interest & carry cost in {} month(s)\n".format(hold_breakeven_point)
+        msg += "* You cumulative rent cost will exceed interest & carry cost in *{}* month(s)\n".format(hold_breakeven_point)
     else:
-        msg += "You cumulative rent cost won't exceed interest & carry cost in {} year(s)\n.".format(term)
+        msg += "* You cumulative rent cost won't exceed interest & carry cost in {} year(s)\n.".format(term)
     if resell_breakeven_point < df_pay_cum.shape[1]:
-        msg += "You cumulative rent cost will exceed interest & carry cost plus {}% resell cost in {} month(s).\n".format(resell_cost_rate, resell_breakeven_point)
+        msg += "* You cumulative rent cost will exceed interest & carry cost plus {}% resell cost in *{}* month(s).\n".format(resell_cost_rate, resell_breakeven_point)
     else:
-        msg += "You cumulative rent cost will not exceed interest & carry cost plus {}% resell cost in {} years.\n".format(resell_cost_rate, term)
-    msg += "* Both assume your house value stays the same as the purchase price over time."
-    st.text(msg)
+        msg += "* You cumulative rent cost will not exceed interest & carry cost plus {}% resell cost in {} years.\n\n".format(resell_cost_rate, term)
+    msg += "\n **Note**: Both assume your house value stays the same as the purchase price over time."
+    st.markdown(msg)
