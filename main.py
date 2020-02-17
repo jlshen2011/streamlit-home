@@ -37,7 +37,7 @@ if app == "Market Dashboard":
         buy_path = root + buy_path
         rent_path = root + rent_path
         return pd.read_csv(buy_path), pd.read_csv(rent_path)
-    source = st.sidebar.selectbox("Select data source", ("Online", "Local"))
+    source = st.sidebar.selectbox("Select data source", ("Local", "Online"))
     type = st.sidebar.selectbox("Select home type", ("1 Bedroom", "2 Bedrooms", "3 Bedrooms", "Single Family Homes"))
     df_buy, df_rent = get_data(type, source)
 
@@ -91,16 +91,19 @@ if app == "Market Dashboard":
     # home value index
     st.header("Zillow Home Value Index\n")
     df_buy = transform_data(df_buy, states, cities, nbrs, start_time, end_time)
-    st.dataframe(df_buy)    
-    st.header("\n")
-    plot_data(df_buy, "Zillow Home Value Index", nbrs)
+    if len(df_buy) == 0:
+        st.text("Empty data for selected neighborhoods.")
+    else:
+        st.dataframe(df_buy)    
+        st.header("\n")
+        plot_data(df_buy, "Zillow Home Value Index", nbrs)
 
 
     # median rent list price
     st.header("Zillow Median Rent List Price\n")
     df_rent = transform_data(df_rent, states, cities, nbrs, start_time, end_time)
     if len(df_rent) == 0:
-        st.text("Empty data for rent price.")
+        st.text("Empty data for selected neighborhoods.")
     else:
         st.dataframe(df_rent)    
         st.header("\n")
