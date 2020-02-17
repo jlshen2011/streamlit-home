@@ -47,7 +47,7 @@ if app == "Market Dashboard":
     if len(states) == 0:
         states = states_all
     cities_all = sorted(list(pd.unique(df_buy.loc[df_buy["State"].isin(states), "City"])))
-    cities = st.sidebar.multiselect("Select city", cities_all, cities_all[0])
+    cities = st.sidebar.multiselect("Select city", cities_all, [cities_all[0]])
     if len(cities) == 0:
         cities = cities_all
     nbrs_all = sorted(list(pd.unique(df_buy.loc[(df_buy["State"].isin(states)) & (df_buy["City"].isin(cities)), "RegionName"])))
