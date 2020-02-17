@@ -51,7 +51,7 @@ if app == "Market Dashboard":
     if len(cities) == 0:
         cities = cities_all
     nbrs_all = sorted(list(pd.unique(df_buy.loc[(df_buy["State"].isin(states)) & (df_buy["City"].isin(cities)), "RegionName"])))
-    nbrs = st.sidebar.multiselect("Select neighborhood", nbrs_all)
+    nbrs = st.sidebar.multiselect("Select neighborhood", nbrs_all, nbrs_all)
     if len(nbrs) == 0:
         nbrs = nbrs_all
     months = list(df_buy.columns[7:])
