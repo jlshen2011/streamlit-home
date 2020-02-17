@@ -80,10 +80,10 @@ if app == "Market Dashboard":
                 y=alt.Y("{}:Q".format(index_name), stack=None),
                 color="Neigborhood:N",
             )
-            .properties(
-                width=600,
-                height=400
-            )
+            #.properties(
+            #    width=600,
+            #    height=400
+            #)
         )
         st.altair_chart(chart, use_container_width=True)
 
