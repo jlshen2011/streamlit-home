@@ -12,7 +12,7 @@ Make sure you have them before running the code.
 ```bash
 git clone https://github.com/jlshen2011/streamlit-home.git
 cd streamlit-home
-streamlit run main.py
+streamlit run app.py
 ```
 
 ## Market Dashboard
