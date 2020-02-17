@@ -37,7 +37,7 @@ if app == "Market Dashboard":
         buy_path = root + buy_path
         rent_path = root + rent_path
         return pd.read_csv(buy_path), pd.read_csv(rent_path)
-    source = st.sidebar.selectbox("Select data source", ("Local", "Online"))
+    source = st.sidebar.selectbox("Select data source", ("Online", "Local"))
     type = st.sidebar.selectbox("Select home type", ("1 Bedroom", "2 Bedrooms", "3 Bedrooms", "Single Family Homes"))
     df_buy, df_rent = get_data(type, source)
 
